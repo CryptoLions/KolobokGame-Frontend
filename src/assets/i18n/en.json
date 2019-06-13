@@ -1,0 +1,49 @@
+{
+	"HOME": "Home",
+	"GITHUB": "Github",
+	"LOGIN": "Login",
+	"LOGOUT": "Logout",
+	"VERSION": "Version",
+	"WIKI": "wiki",
+	"WELCOME_TEXT": {
+		"PART_1": "Welcome to",
+		"PART_2": "game created by",
+		"PART_3": "team",
+		"PART_4": "and powered by",
+		"PART_5": "standard"
+	},
+	"MY_KOLOBOKS": "My Koloboks",
+	"BREEDING": "Breeding",
+	"CLAIM": "Claim",
+	"BUY_NEW": "Buy New",
+	"BUY_2": "Buy at least 2 koloboks for start breeding",
+	"BREED": "breed",
+	"ADD_FOR_BREEDING": "Add for Breeding",
+	"KOLOBOK": {
+		"ID": "Id",
+		"AGE": "Age",
+		"KIDS": "Kids",
+		"GEN": "Gen",
+		"GENOME": "Genome",
+		"PARENTS": "Parents",
+		"B_DAY": "B-day",
+		"HEALTH": "Health"
+	},
+	"BREEDING_HEADER": {
+		"PART_1": "Babies Table",
+		"PART_2": "is empty"
+	},
+	"BREEDING_CONTENT": {
+		"PARENT_1": "Parent 1",
+		"PARENT_2": "Parent 2",
+		"OWNER": "Owner",
+		"BORN": "Time until born"
+	},
+	"CLAIM_HEADER": "Claim your baby Kolobok",
+	"NOTHING": "nothing to claim",
+	"ENTER_BABY": "Enter your Baby name",
+	"FUN": "Having fun",
+	"RESTING": "Resting",
+	"GROWING": "Growing",
+	"RENAME": "Rename"
+}

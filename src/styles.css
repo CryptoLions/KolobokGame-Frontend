@@ -1,0 +1,611 @@
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+/*@import '~ngx-toastr/toastr.css';*/
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(./assets/fonts/ProximaNova-Reg-webfont.woff2);
+}
+
+@font-face {
+    font-family: ProximaNovaLight;
+    src: url(./assets/fonts/ProximaNova-Light-webfont.woff2);
+}
+
+@font-face {
+    font-family: PixelMono;
+    src: url(./assets/fonts/PixelOperatorMono.woff);
+}
+
+@font-face {
+    font-family: PixelMonoBold;
+    src: url(./assets/fonts/PixelOperatorSC-Bold.ttf);
+}
+
+
+body, html {
+	display: block;
+	margin: 0;
+    color: #fff;
+    font-family: PixelMono, ProximaNova, "Helvetica Neue", Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    height: 100%;
+}
+body{
+	background: url("./assets/images/back-pixel.jpg");
+	background-size: cover;
+}
+a{
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:hover{
+	color: #fb3186;
+	text-decoration: none;
+}
+app-root{
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.uk-label{
+	background: rgb(70, 90, 117);
+}
+.color-pink{
+	color: rgb(251, 49, 134);
+}
+.uk-offcanvas-content{
+	position: relative;
+	height: 100%;
+	background: rgba(27, 34, 56, 0.5);
+}
+#recentPlayers .uk-label{
+	margin-left: 10px;
+	margin-bottom: 8px;
+	text-transform: lowercase;
+	cursor: pointer;
+}
+#recentPlayers .uk-label:first-child{
+	margin-left: 0;
+}
+#tableLoader{
+	display: none;
+}
+#gamesLog{
+	/*max-height: 230px;
+	overflow-y: scroll;*/
+	margin-top: 35px;
+}
+#btn_create{
+	border-radius: 0;
+}
+.uk-section-small{
+	padding-top: 5px;
+    padding-bottom: 10px;
+}
+#gameContainer{
+	margin-bottom: 20px;
+}
+.table-top{
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+.uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, h1, h2, h3, h4, h5, h6{
+	color:#fff;
+	font-family: PixelMono;
+	font-weight: bold;
+}
+.logo-container{
+	font-size: 30px;
+}
+.logo-container a{
+	color: #fff;
+	text-decoration: none;
+}
+.logo-container a:hover{
+	color: #fff;
+}
+.nav-container{
+	margin-top: 15px;
+}
+.logo-container span{
+    font-family: PixelMono;
+    font-weight: bold;
+}
+.logo-container span:hover{
+	text-shadow: 1px 1px 15px #fff;
+}
+.uk-navbar-nav>li>a{
+	font-size: 18px;
+	font-family: PixelMono;
+    font-weight: bold;
+}
+.uk-navbar-nav>li>a:hover{
+	text-shadow: 1px 1px 15px #fff;
+}
+.game-actions-icons{
+	font-size: 20px;
+}
+.game-history{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 34px;
+}
+#gh_eoswebnetbp1_hstatus .marg_btm_5{
+	border: 1px solid #25a2e8;
+}
+.btn_restart{
+	margin-left: 20px;
+}
+
+.game-icons{
+	font-size: 100px;
+	opacity: 0.9;
+}
+.game-icons i{
+	margin-left: 0px;
+	color: #fff;
+}
+.game-icons i:first-child{
+	margin-left: 0px;
+}
+.uk-text-lead{
+	color: rgba(255,255,255,0.8);
+}
+.uk-button-primary{
+    color: #3483d9;
+    border-radius: 30px;
+}
+.uk-button-primary:hover{
+	box-shadow: 0 10px 40px #3483d9;
+	color: #0f7ae5;
+}
+
+.uk-subnav>*>:first-child{
+	color: rgba(255,255,255,0.8);
+}
+.uk-subnav li a:first-child:hover,
+.uk-subnav li a:first-child:active,
+.uk-subnav li a:first-child:focus{
+	color: #fb3186;
+}
+.red {
+	color: #FF0000;
+}
+.uk-subnav>*{
+	padding-left: 10px;
+}
+.uk-navbar-nav {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.uk-navbar-nav>li>a{
+	color: rgba(255,255,255,0.8) !important;
+	padding-left: 0;
+    margin-right: 22px;
+}
+.uk-navbar-nav>li>a:hover, 
+.uk-navbar-nav>li>a:active, 
+.uk-navbar-nav>li>a:focus{
+	color: #fff !important;
+}
+.uk-button-text::before{
+	border-bottom: none;
+}
+.color-white{
+ 	color: #fff !important;
+}
+#userContainer{
+	padding: 15px 0;
+}
+.user-logo{
+    margin-right: 10px;
+    background: rgba(255, 255, 255, 01);
+    padding: 7px 12px 11px 12px;
+    border-radius: 50%;
+    margin-top: 3px;
+    display: inline-table;
+}
+#userName{
+    margin-top: 11px;
+    display: table;
+    float: right;
+    font-weight: bold;
+}
+.get-started{
+	display: none;
+}
+#inputContainer{
+	display: none;
+}
+.uk-card-default{
+	background: none;
+	box-shadow: none;
+	padding: 0px 20px;
+}
+.container-input{
+	width: 410px;
+}
+.main-game-container{
+	padding-left: 20px;
+	padding-right: 20px
+}
+.user-circle-icon{
+	margin-top: 20px;
+	font-size: 20em;
+}
+.user-game-name{
+	font-size: 18px;
+	letter-spacing: 0.5px;
+}
+.icons-container-margin{
+	margin-top: -50px;
+}
+#main-container-game-start{
+	display: none;
+}
+.alert-container{
+	background: #fff;
+    color: #3483d9;
+    position: absolute !important;
+    right: 17px;
+    border-radius: 50%;
+    top: 23px;
+    font-size: 10px;
+    display: table;
+    width: 15px;
+    height: 15px;
+    position: relative;
+}
+.alert-container span{
+    margin: 0 auto;
+    display: table !important;
+}
+.login-menu{
+	position: relative;
+}
+.header-history{
+	margin-top: -25px;
+	margin-bottom: 5px;
+}
+.hash-container{
+	display: block;
+    width: 270px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: right;
+    color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.game-history a{
+	color: #fff;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.uk-icon{
+	font-size: 18px;
+}
+.uk-margin-small-right{
+	margin-right: 7px;
+}
+.uk-subnav{
+	display: block;
+}
+.container-table-log{
+	width: 65% !important;
+}
+.gamel-log-table-player{
+	margin-right: 15px;
+}
+.lang-active{
+	color: #fb3186;
+	font-size: 15px;
+}
+.active-link{
+	text-shadow: 1px 1px 15px #fff;
+	color: #fff;
+}
+.uk-icon span{
+	cursor: pointer;
+}
+.kolo-enter{
+	color: #9a9fa8;
+}
+.text-left{
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#pl_status{
+    display: block;
+    position: absolute;
+    right: 18px;
+    top: 170px;
+    width: 100px;
+    margin-right: -20px;
+    line-height: 22px;
+}
+
+#pr_status{
+    display: block;
+    position: absolute;
+    left: 18px;
+    top: 200px;
+    width: 100px;
+    margin-left: -42px;
+    line-height: 22px;
+}
+#pr_status .marg_btm_5,
+#pl_status .marg_btm_5{
+	border: 1px solid #21a9eb;
+	background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.msg_bgr {
+	display: block;
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+    background: rgba(240,240,240,.8);
+    padding: 9px 5px;
+}
+
+.msg_bgr_y {
+	background: rgba(255, 255, 255, .8);
+	color: #3483d9;
+}
+.msg_bgr_g {
+	background: #0ec759;
+	color: #fff;
+}
+.move-two{
+	text-decoration: underline;
+	font-weight: bold;
+	cursor: pointer;
+}
+#globaRank{
+	display: none;
+	max-height: 500px;
+    overflow-y: scroll;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(27, 34, 56, 0.5) !important;
+    border-radius: 4px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(70, 90, 117) !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+}
+.uk-table th{
+	color: rgba(255,255,255,0.8) !important;
+	font-weight: bold;
+	text-align: center;
+}
+.uk-table-striped tbody tr:nth-of-type(odd), .uk-table-striped>tr:nth-of-type(odd){
+	background: rgba(248, 248, 248, 0.2);
+	border-top: 1px solid rgba(229, 229, 229, 0.5);
+	border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+}
+
+
+.msg_bgr:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 24px solid transparent;
+	border-left-color: rgba(240,240,240,.8);
+	border-right: 0;
+	border-top: 0;
+	margin-top: -12px;
+	margin-right: -34px;
+}
+
+.msg_bgr_y:after {
+	border-left-color: rgba(255, 255, 255, .8);
+}
+.msg_bgr_g:after {
+	border-left-color: #0ec759;
+}
+.msg_bgr_r {
+	background: #FF4216;
+	color: #fff;
+}
+.msg_bgr_r:after {
+	border-left-color: #FF4216;
+}
+
+
+.msg_bgl {
+	display: block;
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+    padding: 9px 5px;
+    background: rgba(240,240,240,.8);
+}
+.msg_bgl_y {
+	background: rgba(255, 255 ,255, 0.8);
+	color: #3483d9;
+}
+.msg_bgl_g {
+	color: #fff;
+	background: #0ec759;
+}
+.msg_bgl_r {
+	color: #fff;
+	background: #FF4216;
+}
+
+.msg_bgl:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 24px solid transparent;
+	border-right-color: rgba(240,240,240,.8);
+	border-left: 0;
+	border-top: 0;
+	margin-top: -12px;
+	margin-left: -24px;
+}
+
+.msg_bgl_y:after {
+	border-right-color: rgba(255, 255, 255, .8);
+}
+.msg_bgl_g:after {
+	border-right-color: #0ec759;
+}
+.msg_bgl_r:after {
+	border-right-color: #FF4216;
+}
+
+
+.marg_btm_5 {
+	margin-bottom: 5px;
+}
+
+.winner{
+	color: #15F175;
+}
+
+.looser{
+	color: #FF4216;
+}
+
+.kolo-container{
+	margin-bottom: 35px;
+}
+.kolo-img{
+    padding: 23px;
+    overflow: hidden;
+    background: #fff;
+}
+.kolo-name{
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.kolo-spec{
+	text-align: left;
+	padding-left: 37px;
+}
+.kolo-add{
+	margin-top: 10px;
+}
+.kolo-remove{
+    position: absolute;
+    top: 6px;
+    padding: 0px 11px;
+    left: 22px;
+    line-height: 30px;
+    color: #f43385;
+    background: none;
+}
+.kolo-remove:hover,
+.kolo-remove:focus,
+.kolo-remove:active{
+	color: #f43385;
+    background: none;
+    opacity: 0.8;
+    box-shadow: none;
+}
+.kolo-sell{
+    position: absolute;
+    top: 6px;
+    padding: 1px 7px;
+    right: 22px;
+    line-height: 30px;
+}
+.kolo-breeding{
+	margin-top: 70px;
+}
+.hamburger-menu-btn{
+	display: none;
+	font-size: 18px
+}
+.hamburger-menu-btn:hover,
+.hamburger-menu-btn:focus,
+.hamburger-menu-btn:active{
+	color: #fff;
+}
+.uk-offcanvas-bar{
+	background: rgba(15, 27, 50, 0.9);
+}
+.uk-offcanvas-bar .uk-nav-default>li>a{
+	color: #fafafa;
+}
+.uk-dropdown{
+	background: rgba(52, 61, 83, 0.8);
+}
+.uk-dropdown-nav>li>a{
+	color: #c3c7ce;
+}
+.uk-dropdown-nav>li>a:hover{
+	color: #fff;
+	text-shadow: 1px 1px 10px #fff;
+
+}
+.hidden-navigation .uk-parent{
+	text-align: center;
+}
+.user-name-hidden{
+	margin-top: 11px;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 500px) {
+	.bottom-footer {
+		text-align: center;
+		position: relative !important;
+	}
+	.hamburger-menu-btn{
+		display: block;
+		color: #fff;
+	}
+	.nav-container{
+		margin-top: 5px;
+	}
+	.uk-container{
+		padding-top: 15px;
+	}
+	.main-app-container{
+		padding-top: 30px;
+	}
+	.kolo-breeding{
+		margin-top: 0;
+		margin-bottom: 70px;
+	}
+}
+
+
+

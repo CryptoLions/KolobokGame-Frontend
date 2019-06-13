@@ -1,0 +1,140 @@
+<!--<ngx-toasta></ngx-toasta>-->
+<app-login-eos></app-login-eos>
+<div class="uk-offcanvas-content">
+      <div class="uk-container uk-container-expand">
+        <nav class="uk-navbar">
+          <div class="uk-navbar-left logo-container">
+            <a href="/"> 
+              <span id="logoText"> 
+                <img src="assets/images/faces.svg" width="40" alt="" *ngIf="loginEOSService.connected"> {{configStyle?.logoText}}
+              </span>
+            </a>
+          </div>
+          <div class="uk-navbar-right nav-container">
+            
+            <ul class="uk-navbar-nav uk-visible@m">
+              <li *ngIf="!loginEOSService.connected">
+                  <a routerLink="/" class="uk-button uk-button-text">{{ 'HOME' | translate }}</a>
+              </li> 
+               <li class="login-menu" *ngIf="loginEOSService.connected">
+                  <a class="uk-button uk-button-text" routerLink="koloboks" [ngClass]="{'active-link': router?.url === '/koloboks'}">{{ 'MY_KOLOBOKS' | translate }}</a>
+               </li>
+               <li class="login-menu" *ngIf="loginEOSService.connected">
+                  <a class="uk-button uk-button-text" routerLink="breeding" [ngClass]="{'active-link': router?.url === '/breeding'}">{{ 'BREEDING' | translate}}</a>
+               </li>
+               <li class="login-menu" *ngIf="loginEOSService.connected">
+                  <a class="uk-button uk-button-text" routerLink="claim" [ngClass]="{'active-link': router?.url === '/claim'}">{{ 'CLAIM' | translate}}</a>
+               </li>
+               <li>
+                    <a class="uk-button uk-button-text">{{'GITHUB' | translate}}</a>
+                    <div uk-dropdown>
+                      <ul class="uk-nav uk-dropdown-nav" id="gameCalls">
+                          <li><a href="https://github.com/CryptoLions/KolobokGame-Contract" target="_blank">KOLOBOK</a></li>
+                          <li><a href="https://github.com/CryptoLions/SimpleAssets" target="_blank">SIMPLE-ASSETS</a></li>
+                      </ul>
+                     </div>
+               </li>
+               <li class="uk-inline login-menu" id="userContainer" *ngIf="loginEOSService.connected">
+                   <span class="user-logo">
+                       <img src="assets/images/faces.svg" width="20" alt="">
+                   </span>
+                   <span id="userName">{{ loginEOSService.accountName }}</span>
+                   <div uk-dropdown>
+                       <ul class="uk-nav uk-dropdown-nav">
+                           <li><a (click)="loginEOSService.logout()">{{ 'LOGOUT' | translate }}</a></li>
+                       </ul>
+                   </div>
+               </li> 
+            </ul>
+            
+            <a href="#offcanvas-slide" class="uk-button uk-button-text hamburger-menu-btn" uk-toggle><i class="fas fa-bars"></i></a>
+            <div id="offcanvas-slide" uk-offcanvas>
+                <div class="uk-offcanvas-bar">
+                    <ul class="uk-nav uk-nav-default hidden-navigation"  uk-nav="multiple: true">
+                        <li class="uk-parent" *ngIf="loginEOSService.connected">
+                              <a>
+                                <span class="user-logo">
+                                  <img src="assets/images/faces.svg" width="20" alt="">
+                                </span>
+                                <span class="user-name-hidden">{{ loginEOSService.accountName }}</span>
+                              </a>
+                              <ul class="uk-nav-sub">
+                                   <li><a (click)="loginEOSService.logout()">{{ 'LOGOUT' | translate }}</a></li>
+                              </ul>
+                        </li>
+                        <li class="uk-nav-divider" *ngIf="loginEOSService.connected"></li>
+                        <li *ngIf="!loginEOSService.connected">
+                           <a routerLink="/" class="uk-button uk-button-text uk-toggle-custom" toggle>{{ 'HOME' | translate }}</a>
+                        </li>
+                        <li class="uk-parent">
+                              <a>{{'GITHUB' | translate}}</a>
+                              <ul class="uk-nav-sub">
+                                  <li><a href="https://github.com/CryptoLions/KolobokGame-Contract" target="_blank">KOLOBOK</a></li>
+                                  <li><a href="https://github.com/CryptoLions/SimpleAssets" target="_blank">SIMPLE-ASSETS</a></li>
+                              </ul>
+                        </li>
+                        <li class="login-menu" *ngIf="loginEOSService.connected">
+                           <a class="uk-button uk-button-text uk-toggle-custom" routerLink="koloboks" [ngClass]="{'active-link': router?.url === '/koloboks'}">{{ 'MY_KOLOBOKS' | translate }}</a>
+                        </li>
+                        <li class="login-menu" *ngIf="loginEOSService.connected">
+                           <a class="uk-button uk-button-text uk-toggle-custom" routerLink="breeding" [ngClass]="{'active-link': router?.url === '/breeding'}">{{ 'BREEDING' | translate}}</a>
+                        </li>
+                        <li class="login-menu" *ngIf="loginEOSService.connected">
+                           <a class="uk-button uk-button-text uk-toggle-custom" routerLink="claim" [ngClass]="{'active-link': router?.url === '/claim'}">{{ 'CLAIM' | translate}}</a>
+                        </li>
+                    </ul>
+            
+                </div>
+            </div>
+              
+          </div>
+        </nav>
+      </div>
+
+      <div uk-height-viewport="offset-top: true; offset-bottom: true" class="uk-section uk-section-small uk-flex uk-flex-middle uk-text-center" style="box-sizing: border-box; min-height: calc((100vh - 80px) - 103px);">
+        <div class="uk-width-1-1">
+          <div class="container main-app-container">
+              <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+
+      <div class="uk-section-small bottom-footer">
+              <div class="uk-container uk-position-relative">
+                <ul uk-margin="" class="uk-subnav tm-subnav uk-margin-remove-bottom">
+                  <li class="uk-first-column">
+                    <a href="https://github.com/CryptoLions/KolobokGame-Contract" target="_blank" class="uk-text-lowercase"> 
+                      <span class="uk-margin-small-right uk-icon">
+                      <i class="fal fa-code-merge"></i>
+                      </span>{{'VERSION' | translate}} {{version}}</a>
+                  </li> 
+                  <li>
+                    <a href="https://twitter.com/EOS_CryptoLions" target="_blank" class="uk-text-lowercase">
+                      <span class="uk-margin-small-right uk-icon">
+                        <i class="fab fa-twitter"></i>
+                      </span>@cryptolions</a>
+                  </li> 
+                  <li>
+                    <a href="https://cryptolions.io" target="_blank"> 
+                      <span class="uk-margin-small-right uk-icon">
+                        <i class="fab fa-gitter"></i>
+                      </span>cryptolions.io</a>
+                  </li>
+                  <li>
+                      <span class="uk-margin-small-right uk-icon">
+                       <i class="fas fa-globe"></i>
+                       lang:
+                       <span *ngFor="let lang of translate.getLangs()" (click)="translateLang(lang)" [ngClass]="{'lang-active': lang === translate.currentLang}"> {{ scatterService.languages[lang] }} </span>
+                      </span>
+                  </li> 
+                  <li class="uk-first-column">
+                    <a href="https://everipedia.org/wiki/lang_en/Kolobok/" target="_blank" class="uk-text-lowercase"> 
+                      <span class="uk-margin-small-right uk-icon">
+                      </span>Kolobok {{'WIKI' | translate}}</a>
+                  </li> 
+                </ul>
+              </div>
+      </div>
+</div>
+<!--<app-login-eos></app-login-eos>-->
+

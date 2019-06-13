@@ -1,0 +1,49 @@
+{
+	"HOME": "首页",
+	"GITHUB": "Github",
+	"LOGIN": "登录",
+	"LOGOUT": "退出",
+	"VERSION": "版本",
+	"WIKI": "维基",
+	"WELCOME_TEXT": {
+		"PART_1": "欢迎来到",
+		"PART_2": "游戏由创建",
+		"PART_3": "团队",
+		"PART_4": "并且由提供支持",
+		"PART_5": "非标准"
+	},
+	"MY_KOLOBOKS": "我的科洛博克",
+	"BREEDING": "繁衍中",
+	"CLAIM": "认领",
+	"BUY_NEW": "购买新的",
+	"BUY_2": "购买至少2个科洛博克开始繁衍",
+	"BREED": "养育",
+	"ADD_FOR_BREEDING": "添加养育",
+	"KOLOBOK": {
+		"ID": "身份",
+		"AGE": "年龄",
+		"KIDS": "孩子",
+		"GEN": "家族",
+		"GENOME": "基因组",
+		"PARENTS": "父母",
+		"B_DAY": "生日",
+		"HEALTH": "健康"
+	},
+	"BREEDING_HEADER": {
+		"PART_1": "婴儿表",
+		"PART_2": "袋子是空的"
+	},
+	"BREEDING_CONTENT": {
+		"PARENT_1": "父母1",
+		"PARENT_2": "父母2",
+		"OWNER": "所有者",
+		"BORN": "出生时间"
+	},
+	"CLAIM_HEADER": "认领你的婴儿",
+	"NOTHING": "无认领",
+	"ENTER_BABY": "输入婴儿名字",
+	"FUN": "正玩得开心",
+	"RESTING": "休息中",
+	"GROWING": "成长中",
+	"RENAME": "重命名"
+}

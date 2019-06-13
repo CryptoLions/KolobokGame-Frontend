@@ -1,0 +1,26 @@
+<div>
+  <h1>{{'CLAIM_HEADER' | translate}}</h1>
+  <h3 *ngIf="itemsArr && itemsArr?.length === 0">{{'NOTHING' | translate}}</h3>
+  <div class="container">
+	<div class="row">
+		<div class="col-sm-3 kolo-container" *ngFor="let elem of itemsArr;">
+			<div class="kolo-img">
+				<img src="{{elem?.image}}" alt="">
+			</div>
+			<div class="kolo-name">
+					{{elem?.name}}
+			</div>
+			<div class="kolo-spec">
+				<div><strong>{{'KOLOBOK.ID' | translate}}</strong>: {{elem?.id}}</div>
+				<div><strong>{{'KOLOBOK.B_DAY' | translate}}</strong>: {{moment(elem?.idata?.bdate * 1000).format("MMM Do YY")}}</div>
+				<div><strong>{{'KOLOBOK.HEALTH' | translate}}</strong>: {{elem?.mdata?.health}}</div>
+				<div><strong>{{'KOLOBOK.GENOME' | translate}}</strong>: {{elem?.idata?.genome?.slice(0, 10)}}...</div>
+				<div><strong>{{'KOLOBOK.PARENTS' | translate}}</strong>: [{{elem?.idata?.p1}}, {{elem?.idata?.p2}}]</div>
+			</div>
+			<div class="kolo-add">
+				<a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large" (click)="claim(elem)" [ngStyle]="config.style.ukButtonPrimary">{{'CLAIM' | translate}}</a> 
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

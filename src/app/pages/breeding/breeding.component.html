@@ -1,0 +1,21 @@
+<div>
+  <h1>{{'BREEDING_HEADER.PART_1' | translate}} <span *ngIf="itemsArr && itemsArr?.length === 0"> {{'BREEDING_HEADER.PART_2' | translate}} </span></h1>
+  <div class="container">
+	<div class="row">
+		<div class="col-sm-4 kolo-container" *ngFor="let elem of itemsArr;">
+			<div class="kolo-name">
+					{{elem?.bname}}
+			</div>
+			<div class="kolo-spec">
+				<div><strong>{{'BREEDING_CONTENT.PARENT_1' | translate}}</strong>: {{elem?.parent1}}</div>
+				<div><strong>{{'BREEDING_CONTENT.PARENT_2' | translate}}</strong>: {{elem?.parent2}}</div>
+				<div><strong>{{'BREEDING_CONTENT.OWNER' | translate}}</strong>: {{elem?.owner}}</div>
+				<div class="color-pink">
+					 <strong>{{'BREEDING_CONTENT.BORN' | translate}}</strong>: 
+					 <countdown [dateTime]="elem?.coldown"></countdown>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

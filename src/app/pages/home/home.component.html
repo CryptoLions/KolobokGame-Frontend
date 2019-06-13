@@ -1,0 +1,16 @@
+<p class="game-icons">
+    <img src="assets/images/faces.svg" alt="">
+</p> 
+<div *ngIf="!loginEOSService.connected">
+<p class="uk-margin-medium uk-text-lead">
+              {{'WELCOME_TEXT.PART_1' | translate}} 
+              <strong class="color-white">KOLOBOK</strong> {{'WELCOME_TEXT.PART_2' | translate}} 
+              <strong class="color-white"><a href="https://cryptolions.io">Cryptolions</a></strong> {{'WELCOME_TEXT.PART_3' | translate}} <br class="uk-visible@s">
+                {{'WELCOME_TEXT.PART_4' | translate}} <strong class="color-white"><a href="https://simpleassets.io">SIMPLE-ASSETS</a></strong> {{'WELCOME_TEXT.PART_5' | translate}}
+</p> 
+<div uk-grid="" class="uk-child-width-auto uk-grid-medium uk-flex-inline uk-flex-center uk-grid">
+  <div class="uk-first-column">
+     <a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large" (click)="loginEOSService.openPopup()" [ngStyle]="config.style.ukButtonPrimary">{{'LOGIN' | translate}}</a> 
+  </div>
+</div>
+</div>

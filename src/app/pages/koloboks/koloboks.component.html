@@ -1,0 +1,77 @@
+<div *ngIf="breedingArr?.length">
+	<h1>{{ 'BREEDING' | translate }}</h1>
+	<div class="container">
+	<div class="row">
+		<div class="col-sm-3 kolo-container" *ngFor="let elem of breedingArr;">
+			<div class="kolo-img">
+				<img src="{{elem?.image}}" alt="">
+			</div>
+			<div class="kolo-name">
+					{{elem?.name}}
+			</div>
+			<div class="kolo-add">
+				<a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large kolo-remove" (click)="removeForBreed(elem)" [ngStyle]="config.style.ukButtonPrimary">-</a> 
+			</div>
+		</div>
+		<div class="col-sm-3" *ngIf="breedingArr?.length === 2">
+			<mat-form-field class="example-full-width kolo-breeding">
+    			<input matInput placeholder="{{'ENTER_BABY' | translate}}" [(ngModel)]="babyName">
+  			</mat-form-field>
+			<a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large" (click)="breed()" [ngStyle]="config.style.ukButtonPrimary">{{'BREED' | translate}}</a>
+		</div>
+		<div class="col-sm-3 text-left" *ngIf="breedingArr?.length === 2">
+			<div><strong>Breeding time: </strong> {{breedingInfo?.breedingTime}} </div>
+			<div><strong>Resting {{breedingArr[0]?.name}}: </strong> {{breedingInfo?.restingF}} </div>
+			<div><strong>Resting {{breedingArr[1]?.name}}: </strong> {{breedingInfo?.restingS}} </div>
+			<div><strong>Growing time: </strong> {{breedingInfo?.growingTime}} </div>
+			<div><strong>Generation: </strong> {{breedingInfo?.generation}} </div>
+		</div>
+	</div>
+  </div>
+</div>
+<div>
+  <h1>{{ 'MY_KOLOBOKS' | translate }} <a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large buy-new" href="{{config?.marketUrl}}/products?skip=0&limit=10&authors={{config?.gcontract}}" target="_blank" [ngStyle]="config.style.ukButtonPrimary" *ngIf="itemsArr && itemsArr.length >= 2">{{'BUY_NEW' | translate}}</a></h1>
+  <a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large start-breeding-less" target="_blank" href="{{config?.marketUrl}}/products?skip=0&limit=10&authors={{config?.gcontract}}" [ngStyle]="config.style.ukButtonPrimary" *ngIf="itemsArr && itemsArr?.length < 2 && breedingArr?.length == 0">{{'BUY_2' | translate}}</a>
+  <div class="container">
+	<div class="row">
+		<div class="col-sm-3 kolo-container" *ngFor="let elem of itemsArr;">
+			<div class="kolo-img">
+				<img src="{{elem?.image}}" alt="">
+			</div>
+			<div class="kolo-name">
+					{{elem?.name}}
+			</div>
+			<div class="kolo-spec">
+				<div><strong>{{'KOLOBOK.ID' | translate}}</strong>: {{elem?.id}}</div>
+				<div><strong>{{'KOLOBOK.AGE' | translate}}</strong>: {{countAge(elem?.idata?.bdate)}}</div>
+				<!--<div><strong>Health</strong>: {{elem?.mdata?.health}}</div>-->
+				<div><strong>{{'KOLOBOK.KIDS' | translate}}</strong>: {{elem?.mdata?.kids}}</div>
+				<div><strong>{{'KOLOBOK.GEN' | translate}}</strong>: {{elem?.idata?.gen}}</div>
+				<div><strong>{{'KOLOBOK.GENOME' | translate}}</strong>: {{elem?.idata?.genome?.slice(0, 10)}}...</div>
+				<div><strong>{{'KOLOBOK.PARENTS' | translate}}</strong>: [{{elem?.idata?.p1}}, {{elem?.idata?.p2}}]</div>
+				<div *ngIf="elem?.mdata?.st === 3">
+					<mat-form-field class="example-full-width kolo-new-name">
+    					<input matInput placeholder="{{'RENAME' | translate}}" (keydown)="scatterService.rename($event, elem?.id)">
+    					<span matSuffix class="kolo-enter">&crarr;</span>
+  					</mat-form-field>	
+				</div>
+				<div *ngIf="dateNow < elem?.mdata?.cd * 1000" class="color-pink">
+					<strong *ngIf="elem?.mdata?.st === 1">{{ 'FUN' | translate }}: </strong>
+					<strong *ngIf="elem?.mdata?.st === 2">{{ 'RESTING' | translate }}: </strong>
+					<strong *ngIf="elem?.mdata?.st === 3 || elem?.mdata?.st === 4">{{ 'GROWING' | translate }}: </strong>
+					<countdown [dateTime]="elem?.mdata?.cd"></countdown>
+				</div>
+			</div>
+			<div class="kolo-add" *ngIf="elem?.mdata?.cd * 1000 < dateNow">
+				<a class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large" (click)="addForBreed(elem)" [ngStyle]="config.style.ukButtonPrimary">{{'ADD_FOR_BREEDING' | translate}}</a> 
+			</div>
+			<div class="kolo-add">
+				<button mat-raised-button matTooltip="Sell Kolobok" class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large kolo-remove" (click)="burnKolobok(elem)"><i class="far fa-trash-alt"></i></button> 
+			</div>
+			<div class="kolo-add">
+				<a href="{{config?.marketUrl}}/account/available-assets" target="_blank" class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large kolo-sell" [ngStyle]="config.style.ukButtonPrimary"><i class="fas fa-store"></i></a> 
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
